@@ -25,7 +25,7 @@ def test_route():
         return Response(response="Missing required query param: 'keywords'.", status=400)
     if not count:
         count = _DEFAULT_COUNT
-    if not count.isnumeric():
+    elif not count.isnumeric():
         return Response(response=f"'count' expected to be an integer value, given {count}")
 
     count = int(count)
